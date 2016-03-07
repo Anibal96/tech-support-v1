@@ -15,7 +15,7 @@ public class SupportSystem
 {
     private InputReader reader;
     private Responder responder;
-    
+
     /**
      * Creates a technical support system.
      */
@@ -26,16 +26,13 @@ public class SupportSystem
     }
 
     /**
-     * Start the technical support system. This will print a welcome
-     * message and enter into a dialog with the user, until the user
-     * ends the dialog.
+     * Metodo que comprueba que el mensaje sea bye en ese caso muestra un mensaje y devuelve null.
      */
     public void start()
     {
         boolean finished = false;
 
         printWelcome();
-
         while(!finished) {
             String input = reader.getInput();
             input = input.toLowerCase().trim();
@@ -43,8 +40,13 @@ public class SupportSystem
                 finished = true;
             }
             else {
-                String response = responder.generateResponse();
-                System.out.println(response);
+                if (input.equals("pepe") || input.equals("juan") || input.equals("alba") || input.equals("pepito")){
+                    System.out.println(responder.generateResponseSpecials(input));
+                }
+                else{
+                    String response = responder.generateResponse();
+                    System.out.println(response);
+                }
             }
         }
         printGoodbye();
