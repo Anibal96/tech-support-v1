@@ -40,13 +40,8 @@ public class SupportSystem
                 finished = true;
             }
             else {
-                if (input.equals("pepe") || input.equals("juan") || input.equals("alba") || input.equals("pepito")){
-                    System.out.println(responder.generateResponseSpecials(input));
-                }
-                else{
-                    String response = responder.generateResponse();
-                    System.out.println(response);
-                }
+                String response = responder.generateResponse(input);
+                System.out.println(response);
             }
         }
         printGoodbye();

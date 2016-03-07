@@ -29,7 +29,7 @@ public class Responder
         respuestas.add("Puedes ser mas concreto ...");
         respuestas.add("No te entiendo ...");
         respuestas.add("Nose como ayudarte necesito mas informacion ...");
-        
+
         palabrasClave.put("pepe", "Hola Pepe");
         palabrasClave.put("juan", "Que tal Juan");
         palabrasClave.put("alba", "Como estas Alba");
@@ -40,11 +40,16 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse()
+    public String generateResponse(String clave)
     {
-        return respuestas.get(eleccion.nextInt(respuestas.size()));
+        String respuesta;
+        respuesta = palabrasClave.get(clave);
+        if (respuesta == null){
+            respuesta = respuestas.get(eleccion.nextInt(respuestas.size()));
+        }
+        return respuesta;
     }
-    
+
     /**
      * Metodo que genera las respuestas a las palabras claves
      */
